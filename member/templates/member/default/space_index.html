@@ -1,0 +1,32 @@
+{template header.html}
+<script type="text/javascript">
+$(function(){
+	{if $error}
+	dr_tips('<font color=red>{$error}</font>', 3);
+	{/if}
+});
+</script>
+<div class="content clearfix">
+	{template navigator.html}
+    <div class="article">
+    	<div class="section">
+            <div class="title"><strong>{$meta_name}</strong></div>
+            <div class="main">
+            	<form action="" method="post">
+                <table width="100%" class="table_form">
+                <tr>
+                    <th width="160">空间名称： </th>
+                    <td><input type="text" value="{$data['name']}" size="30" name="name" class="input-text" {if !$editspace && $data['name']}disabled="disabled"{/if} />{if !$editspace}<span class="attention">空间名称一旦审核通过不允许修改</span>{/if}</td>
+                </tr>
+                {$myfield}
+                <tr>
+                    <th style="border-bottom:none">&nbsp;</th>
+                    <td style="border-bottom:none;padding-top: 20px;"><div class="mbutton"><button value="" type="submit" class="blue_button">保存</button></div></td>
+                </tr>
+                </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{template footer.html}

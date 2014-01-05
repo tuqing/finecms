@@ -1,0 +1,42 @@
+{template header.html}
+<script type="text/javascript">
+$(function() {
+	{if $error}
+	art.dialog.tips('<font color=red>{$error.msg}</font>', 3);
+	d_tips('{$error.error}', 0);
+	{/if}
+});
+
+</script>
+<form action="" method="post" name="myform" id="myform">
+<div class="subnav">
+	<div class="content-menu ib-a blue line-x">
+		{$menu}
+	</div>
+	<div class="bk10"></div>
+	<div class="table-list contentList">
+        <table width="100%" class="table_form">
+        <tr>
+            <th width="200"><font color="red">*</font>&nbsp;{lang('html-028')}： </th>
+            <td>{$select}</td>
+        </tr>
+        {$myfield}
+        <tr>
+            <th>{lang('html-322')}： </th>
+            <td>
+            <input name="status" type="radio" value="1" {if $data.status} checked="checked"{/if} />&nbsp;&nbsp;<label>{lang('html-529')}</label>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input name="status" type="radio" value="0" {if !$data.status} checked="checked"{/if} />&nbsp;&nbsp;<label>{lang('html-530')}</label>
+            </td>
+        </tr>
+        <tr>
+			<th width="200" style="border:none;">&nbsp;</th>
+			<td>
+			<input class="button" type="submit" name="submit" value="{lang('submit')}" />
+			</td>
+		</tr>
+        </table>
+	</div>
+</div>
+</form>
+{template footer.html}

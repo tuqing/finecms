@@ -1,0 +1,51 @@
+{template header.html}
+<script type="text/javascript">
+$(function() {
+	{if $error}
+	art.dialog.tips('{$error}', 3);
+	{/if}
+});
+</script>
+<form action="" method="post" name="myform" id="myform">
+<div class="subnav">
+	<div class="content-menu ib-a blue line-x">
+		{$menu}
+	</div>
+	<div class="bk10"></div>
+	<div class="table-list col-tab">
+        <table width="100%" class="table_form">
+        <tr>
+            <th width="200">{lang('html-528')}： </th>
+            <td><input class="input-text" type="text" name="value[name]" value="{$data['name']}" style="width:300px;" /></td>
+        </tr>
+       {$myfield}
+        <tr>
+            <th>{lang('html-535')}： </th>
+            <td>
+            <input class="input-text" type="text" name="value[hits]" value="{intval($data['hits'])}" size="20" />
+            </td>
+        </tr>
+		<tr>
+            <th>{lang('html-335')}： </th>
+            <td>
+            <input class="input-text" type="text" name="value[style]" value="{$data['style']}" size="20" />
+            </td>
+        </tr>
+        <tr>
+            <th>&nbsp;{lang('html-322')}： </th>
+            <td>
+            <input type="radio" name="value[status]" value="1" {if $data.status}checked{/if} />&nbsp;&nbsp;<label>{lang('html-529')}</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="value[status]" value="0" {if !$data.status}checked{/if} />&nbsp;&nbsp;<label>{lang('html-530')}</label>
+            </td>
+        </tr>
+        </table>
+	</div>
+</div>
+<div class="fixed-bottom">
+<div class="fixed-but text-c">
+	<div class="button"><input value="{lang('save')}" type="submit" name="submit" class="cu" style="width:100px;" /></div>
+</div>
+</div>
+</form>
+{template footer.html}
